@@ -25,22 +25,25 @@ while (chancesLeft > 0 && !guessedCorrectly) {
             message: "Guess a number",
         },
     ]);
-    if (answers.UserGuessedNumber == true) {
-        console.log("You guessed correct number");
-        console.log(message4);
-    }
-    else {
-        chancesLeft--;
-        if (chancesLeft == 2) {
-            console.log(message5);
-        }
-        else if (chancesLeft == 1) {
-            console.log(message6);
-        }
-        else {
-            console.log("You loss");
-            console.log(message7);
-            console.log("The correct number is", randomNumber);
-        }
-    }
+   
+if (answers.UserGuessedNumber === randomNumber) {
+  console.log("You guessed correct number");
+  console.log(message4);
+  guessedCorrectly = true;
+} else {
+  chancesLeft--;
+
+  if (chancesLeft === 2) {
+    console.log(message5);
+  } else if (chancesLeft === 1) {
+    console.log(message6);
+  }
+
+  if (chancesLeft === 0) {
+    console.log("You loss");
+    console.log(message7);
+    console.log("The correct number is", randomNumber);
+          }
+
+      }
 }
